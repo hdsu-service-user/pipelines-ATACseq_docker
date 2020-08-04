@@ -23,7 +23,8 @@ RUN apt-get update && apt-get install -y \
     liblzma-dev \
     zlib1g-dev \
     libcurl4-openssl-dev\
-    wget
+    wget \
+    git
 
 RUN apt-get update && apt-get install -y \
     ${PYTHON} \
@@ -38,7 +39,13 @@ RUN ln -s $(which ${PYTHON}) /usr/local/bin/python
 
 
 RUN ${PIP} install cython numpy scipy
-RUN ${PIP} install RGT --no-binary RGT
+#RUN ${PIP} install RGT --no-binary RGT
+
+RUN git clone https://github.com/CostaLab/reg-gen.git
+RUN cd reg-gen; python setup.py install --prefix=/rgtdata --rgt-data-path=/rgtdata 
+
+
+
 
 
 #RUN cd ~/rgtdata ; python setupGenomicData.py --hg19
