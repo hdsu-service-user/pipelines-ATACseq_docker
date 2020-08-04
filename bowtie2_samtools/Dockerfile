@@ -9,7 +9,7 @@ LABEL maintainer="Andres Quintero andres.quintero@bioquant.uni-heidelberg.de"
 ENV LANG C.UTF-8
 
 RUN apt-get update && apt-get install -y \
-unzip
+    unzip \
     wget \
     gcc \
     g++ \
