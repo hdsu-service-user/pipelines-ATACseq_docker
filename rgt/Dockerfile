@@ -39,10 +39,13 @@ RUN ln -s $(which ${PYTHON}) /usr/local/bin/python
 
 
 RUN ${PIP} install cython numpy scipy
+
+ENV RGTDATA="/rgtdata"
 #RUN ${PIP} install RGT --no-binary RGT
 
 RUN git clone https://github.com/CostaLab/reg-gen.git
-RUN cd reg-gen; python setup.py install --prefix=/rgtdata --rgt-data-path=/rgtdata 
+RUN cd reg-gen; python setup.py install 
+#RUN cd reg-gen; python setup.py install --prefix=/rgtdata
 
 
 
