@@ -42,7 +42,7 @@ RUN ${PIP} install RGT --no-binary RGT
 
 
 #RUN cd ~/rgtdata ; python setupGenomicData.py --hg19
-RUN cd ~/rgtdata ; python setupGenomicData.py --all
+#RUN cd ~/rgtdata ; python setupGenomicData.py --all
 
 #RUN ${PIP} install tensorflow==2.2.0
 
