@@ -51,7 +51,10 @@ RUN ${PIP} install RGT --no-binary RGT
 
 
 
-RUN cd /rgtdata ; python setupGenomicData.py --hg19
+RUN cd /rgtdata && \
+    find . -type d -exec chmod 777 {} \; && \
+    find . -type f -exec chmod 666 {} \;
+#RUN cd /rgtdata ; python setupGenomicData.py --hg19
 #RUN cd /rgtdata ; python setupGenomicData.py --hg38
 #RUN cd ~/rgtdata ; python setupGenomicData.py --all
 
