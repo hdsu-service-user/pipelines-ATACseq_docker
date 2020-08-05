@@ -25,10 +25,10 @@ RUN unzip bowtie2-2.3.2-linux-x86_64.zip && \
 
 
 
-RUN mkdir /genomeData && \
-    cd /genomeData && \
-    wget http://igenomes.illumina.com.s3-website-us-east-1.amazonaws.com/Homo_sapiens/UCSC/hg38/Homo_sapiens_UCSC_hg38.tar.gz && \
-    for f in *.tar.gz; do tar -zxvf "$f"; done
+#RUN mkdir /genomeData && \
+#    cd /genomeData && \
+#    wget http://igenomes.illumina.com.s3-website-us-east-1.amazonaws.com/Homo_sapiens/UCSC/hg38/Homo_sapiens_UCSC_hg38.tar.gz && \
+#    for f in *.tar.gz; do tar -zxvf "$f"; done
 
 
 
