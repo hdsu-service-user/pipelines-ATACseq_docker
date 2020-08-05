@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y \
 RUN wget https://downloads.sourceforge.net/project/bowtie-bio/bowtie2/2.3.2/bowtie2-2.3.2-linux-x86_64.zip
 RUN unzip bowtie2-2.3.2-linux-x86_64.zip && \
     rm -rf bowtie2-2.3.2-linux-x86_64.zip && \
-    mv bowtie2-2.4.1-linux-x86_64/* /usr/local/bin/ 
+    ls -l && \
+    mv bowtie2-2.3.2/* /usr/local/bin/ 
 #    mkdir /usr/local/bin/ && \
 
 
