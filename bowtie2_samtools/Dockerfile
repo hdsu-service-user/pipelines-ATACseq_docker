@@ -35,7 +35,7 @@ RUN unzip bowtie2-2.3.2-linux-x86_64.zip && \
 RUN wget https://github.com/samtools/samtools/releases/download/1.10/samtools-1.10.tar.bz2 && \
     tar -jxvf samtools-1.10.tar.bz2 && \
     cd samtools-1.10 && \
-    ./configure --prefix=/usr/local/bin/ && \
+    ./configure --prefix=/usr/local/ && \
     make && \
     make install
 
