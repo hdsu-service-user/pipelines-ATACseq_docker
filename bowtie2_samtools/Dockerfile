@@ -9,11 +9,19 @@ LABEL maintainer="Andres Quintero andres.quintero@bioquant.uni-heidelberg.de"
 ENV LANG C.UTF-8
 
 RUN apt-get update && apt-get install -y \
+    build-essential \
     unzip \
     wget \
     gcc \
     g++ \
-    libtbb-dev
+    libtbb-dev \
+    libncurses5-dev \
+    libncursesw5-dev \
+    libjpeg-dev \
+    libbz2-dev \
+    liblzma-dev \
+    zlib1g-dev \
+    libcurl4-openssl-dev
 
 
 RUN wget https://downloads.sourceforge.net/project/bowtie-bio/bowtie2/2.3.2/bowtie2-2.3.2-linux-x86_64.zip
