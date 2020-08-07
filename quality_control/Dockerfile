@@ -16,7 +16,8 @@ ENV LANG C.UTF-8
 RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libbz2-dev \
-    liblzma-dev
+    liblzma-dev \
+    libxtst6
 
 
 RUN apt-get update && apt-get install -y \
