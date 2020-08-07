@@ -17,7 +17,9 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libbz2-dev \
     liblzma-dev \
-    libxtst6
+    libxtst6:i386
+    #libxtst6
+    
 
 
 RUN apt-get update && apt-get install -y \
