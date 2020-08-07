@@ -56,6 +56,13 @@ RUN wget https://github.com/arq5x/bedtools2/releases/download/v2.29.2/bedtools.s
 
 
 
-# Install macs
+# Install deeptools
 RUN ${PIP} install deeptools
+
+
+# Install bedGraphToBigWig
+RUN wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/bedGraphToBigWig && \
+    mv bedGraphToBigWig /usr/local/bin/bedGraphToBigWig  && \
+    chmod 555 /usr/local/bin/bedGraphToBigWig
+
 
