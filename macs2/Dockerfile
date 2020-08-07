@@ -32,5 +32,6 @@ RUN ${PIP} --no-cache-dir install --upgrade \
 RUN ln -s $(which ${PYTHON}) /usr/local/bin/python 
 
 
+# Install macs2
 RUN ${PIP} install macs2
 

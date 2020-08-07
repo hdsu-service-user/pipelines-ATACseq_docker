@@ -5,6 +5,11 @@ FROM ubuntu:18.04
 LABEL maintainer="Andres Quintero andres.quintero@bioquant.uni-heidelberg.de"
 
 
+ARG PYTHON=python3
+ARG PIP=pip3
+
+
+
 # See http://bugs.python.org/issue19846
 ENV LANG C.UTF-8
 
@@ -22,7 +27,21 @@ RUN apt-get update && apt-get install -y \
     liblzma-dev \
     zlib1g-dev \
     libcurl4-openssl-dev
+    
+    
+RUN apt-get update && apt-get install -y \
+    ${PYTHON} \
+    ${PYTHON}-pip
 
+RUN ${PIP} --no-cache-dir install --upgrade \
+    pip \
+    setuptools
+
+# Some TF tools expect a "python" binary
+RUN ln -s $(which ${PYTHON}) /usr/local/bin/python 
+
+
+# Install samtools
 RUN wget https://github.com/samtools/samtools/releases/download/1.10/samtools-1.10.tar.bz2 && \
     tar -jxvf samtools-1.10.tar.bz2 && \
     cd samtools-1.10 && \
@@ -30,9 +49,13 @@ RUN wget https://github.com/samtools/samtools/releases/download/1.10/samtools-1.
     make && \
     make install
 
-
+# Install bedtools
 RUN wget https://github.com/arq5x/bedtools2/releases/download/v2.29.2/bedtools.static.binary && \
     mv bedtools.static.binary /usr/local/bin/bedtools  && \
     chmod 555 /usr/local/bin/bedtools
 
+
+
+# Install macs
+RUN ${PIP} install deeptools
 
