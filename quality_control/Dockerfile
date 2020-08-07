@@ -14,11 +14,20 @@ ARG PIP=pip3
 ENV LANG C.UTF-8
 
 RUN apt-get update && apt-get install -y \
+    build-essential \
     libjpeg-dev \
     libbz2-dev \
     liblzma-dev \
-    libxtst6:i386
-    #libxtst6
+    libxtst6 \
+    libxext6 \
+    libsm6 \
+    libglib2.0-0 \
+    libxrender-dev \
+    libfontconfig1 \
+    tcl8.6-dev \
+    tk8.6-dev
+    
+
     
 
 
