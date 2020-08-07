@@ -6,7 +6,7 @@ LABEL maintainer="Andres Quintero andres.quintero@bioquant.uni-heidelberg.de"
 # from the tensorflow dockerfile: 
 # https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/dockerfiles/dockerfiles/cpu-jupyter.Dockerfile
 
-ARG PYTHON3
+ARG PYTHON=python3
 ARG PIP=pip3
 
 
