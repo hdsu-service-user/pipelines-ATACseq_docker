@@ -15,7 +15,21 @@ ARG PIP=pip${_PY_SUFFIX}
 
 
 # See http://bugs.python.org/issue19846
-ENV LANG C.UTF-8
+
+RUN apt-get update && apt-get install -y \
+    locales locales-all
+RUN touch /etc/default/locale && \
+    echo LANGUAGE=en_US.UTF-8 >> /etc/default/locale && \
+    echo LANG=en_US.UTF-8 >> /etc/default/locale && \
+    echo LC_ALL=en_US.UTF-8 >> /etc/default/locale && \
+    locale-gen en_US.UTF-8 && \
+    dpkg-reconfigure locales
+    
+
+
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
 
 RUN apt-get update && apt-get install -y \
     libjpeg-dev \
@@ -24,7 +38,9 @@ RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     libcurl4-openssl-dev\
     wget \
-    git
+    git \
+    llvm \
+    libboost-all-dev
 
 RUN apt-get update && apt-get install -y \
     ${PYTHON} \
@@ -47,13 +63,11 @@ RUN ${PIP} install RGT --no-binary RGT
 #RUN cd reg-gen; python setup.py install 
 #RUN cd reg-gen; python setup.py install --prefix=/rgtdata
 
-
-
-
-
 RUN cd /rgtdata && \
     find . -type d -exec chmod 777 {} \; && \
     find . -type f -exec chmod 666 {} \;
+      
+RUN ${PIP} install MOODS-python
 #RUN cd /rgtdata ; python setupGenomicData.py --hg19
 #RUN cd /rgtdata ; python setupGenomicData.py --hg38
 #RUN cd ~/rgtdata ; python setupGenomicData.py --all
