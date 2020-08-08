@@ -67,8 +67,15 @@ RUN wget https://github.com/samtools/samtools/releases/download/1.10/samtools-1.
 
 
 
+RUN apt-get update && apt-get install -y \
+    libglpk-dev \
+    libpng-dev
 
+
+RUN R -e "BiocManager::install('enrichplot', update = FALSE)"
 RUN R -e "install.packages('UpSetR')"
 RUN R -e "BiocManager::install('ChIPseeker', update = FALSE)"
-#RUN R -e "BiocManager::install('gage', update = FALSE)"
+RUN R -e "install.packages('kableExtra')"
+RUN R -e "BiocManager::install('ComplexHeatmap', update = FALSE)"
+RUN R -e "BiocManager::install('LOLA', update = FALSE)"
 #RUN R -e "install.packages('DT')"
