@@ -78,4 +78,10 @@ RUN R -e "BiocManager::install('ChIPseeker', update = FALSE)"
 RUN R -e "install.packages('kableExtra')"
 RUN R -e "BiocManager::install('ComplexHeatmap', update = FALSE)"
 RUN R -e "BiocManager::install('LOLA', update = FALSE)"
+
+RUN R -e "BiocManager::install('TxDb.Hsapiens.UCSC.hg38.knownGene', update = FALSE)"
+RUN R -e "BiocManager::install('TxDb.Hsapiens.UCSC.hg19.knownGene', update = FALSE)"
+RUN R -e "BiocManager::install('TxDb.Mmusculus.UCSC.mm10.knownGene', update = FALSE)"
+RUN R -e "BiocManager::install('TxDb.Mmusculus.UCSC.mm9.knownGene', update = FALSE)"
+
 #RUN R -e "install.packages('DT')"
