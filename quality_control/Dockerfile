@@ -67,3 +67,8 @@ RUN wget https://github.com/samtools/samtools/releases/download/1.10/samtools-1.
 
 
 
+
+RUN R -e "install.packages('UpSetR')"
+RUN R -e "BiocManager::install('ChIPseeker', update = FALSE)"
+#RUN R -e "BiocManager::install('gage', update = FALSE)"
+#RUN R -e "install.packages('DT')"
