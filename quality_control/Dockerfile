@@ -84,4 +84,6 @@ RUN R -e "BiocManager::install('TxDb.Hsapiens.UCSC.hg19.knownGene', update = FAL
 RUN R -e "BiocManager::install('TxDb.Mmusculus.UCSC.mm10.knownGene', update = FALSE)"
 RUN R -e "BiocManager::install('TxDb.Mmusculus.UCSC.mm9.knownGene', update = FALSE)"
 
+RUN R -e "install.packages('ggupset')"
+
 #RUN R -e "install.packages('DT')"
